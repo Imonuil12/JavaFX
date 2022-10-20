@@ -1,19 +1,19 @@
 import java.util.Scanner;
 
-public class ZeroFront {
+public class ZeroEnd {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         String[] inputArray = input.nextLine().strip().split(" ");
         int[] outputArray = new int[inputArray.length];
-        int lastIndex = outputArray.length - 1, counterForOutputArray = 0;
         try {
-            for (int counter = inputArray.length - 1; counter >= 0; counter--) {
-                if (!inputArray[counter].equals("0")) {
-                    outputArray[lastIndex - counterForOutputArray] = Integer.parseInt(inputArray[counter]);
-                    counterForOutputArray++;
+            int outputArrayCounter = 0;
+            for (String integer: inputArray) {
+                if (!integer.equals("0")) {
+                    outputArray[outputArrayCounter] = Integer.parseInt(integer);
+                    outputArrayCounter++;
                 }
             }
-            for (int integer : outputArray) {
+            for (int integer: outputArray) {
                 System.out.printf("%d ", integer);
             }
         } catch (Exception e) {
